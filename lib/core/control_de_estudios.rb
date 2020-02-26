@@ -1,38 +1,37 @@
+module School
 
-module ControlDeEstudios
-
-	class Curso
+	class Course
 		
-		def initialize(materia:, estudiante:)
-			@materia = materia
-			@estudiante = estudiante
-			@notas = {}
+		def initialize(asignature:, student:)
+			@asignature = asignature
+			@student = student
+			@califications = {}
 		end
 
-		def add_nota(lapso, nota)
-			@notas[lapso] = nota
+		def add_calification(span, calification)
+			@califications[span] = calification
 		end
 
-		def get_nota(lapso)
-			@notas[lapso]
+		def get_calification(span)
+			@califications[span]
 		end	
 
-		def nota_definitiva
-			suma = 0
-			@notas.each_value { |value| suma += value }
-			suma / @notas.size
-		end	
+		def definitive_calification
+			result = 0
+			@califications.each_value { |value| result += value }
+			result / @califications.size
+		end
 	
 	end
 
-	class Estudiante
+	class Student
 		
 		def initialize
 		end
 			
 	end	
 
-	class Materia
+	class Asignature
 		
 		def initialize(name:)
 			@name = name
