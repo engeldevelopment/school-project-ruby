@@ -1,6 +1,6 @@
 # Boleta estudiantil
 
-https://travis-ci.org/engeldevelopment/school-project-ruby.svg?branch=master
+[![Build Status](https://travis-ci.org/engeldevelopment/school-project-ruby.svg?branch=master)](https://travis-ci.org/engeldevelopment/school-project-ruby)
 
 Este proyecto tiene como objetivo: mostrar las boletas
 de cada estudiante de manera digitalizada para facilitar
