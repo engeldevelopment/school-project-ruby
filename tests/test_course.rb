@@ -40,6 +40,32 @@ describe School::Course do
 
 		end
 			
+	end
+
+	describe '#get_calification' do
+
+		describe 'cuando el lapso no son ningúno de estos: [:first_span, :second_span, :third_span]' do
+
+			it "dará error" do
+
+				@course.add_calification :first_span, 20
+
+				assert_raises(School::SpanUnknow) {
+					@course.get_calification :x
+				}
+
+				assert_raises(School::SpanUnknow) {
+					@course.get_calification :SECOND_SPAN
+				}
+
+				assert_raises(School::SpanUnknow) {
+					@course.get_calification :unknow
+				}
+
+			end	
+
+		end	
+
 	end	
 	
 end
