@@ -1,5 +1,8 @@
 module School
 
+	SpanUnknow = Class.new(StandardError)
+	SpanParamNotIsValid = Class.new(TypeError)
+
 	class Course
 		
 		def initialize(asignature:, student:)
@@ -9,7 +12,13 @@ module School
 		end
 
 		def add_calification(span, calification)
+
+			raise SpanParamNotIsValid unless span.is_a? Symbol
+			
+			raise SpanUnknow unless /^(first|second|third)_span$/.match? span.to_s
+
 			@califications[span] = calification
+
 		end
 
 		def get_calification(span)
