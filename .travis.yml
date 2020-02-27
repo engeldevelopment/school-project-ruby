@@ -1,0 +1,13 @@
+language: ruby
+ruby:
+  - '2.6'
+
+before_install:
+  - gem install bundler
+  - bundle config set path cache
+
+install:
+  - bundle install 
+
+script:
+  - rake
