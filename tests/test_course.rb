@@ -11,36 +11,41 @@ describe School::Course do
 				asignature: @asignature,
 				student: @student
 			)
-	end	
-
-	describe "cuando el lapso dado para agregar la nota no son estos [:first_span, :second_span, third_span]" do
-		
-		it "da error" do
-
-			assert_raises(School::SpanUnknow) {
-				@course.add_calification(:unknow, 20)
-			}
-
-			assert_raises(School::SpanUnknow) {
-				@course.add_calification(:FIRST_SPAN, 20)
-			}
-
-		end	
-
 	end
 
-	describe 'cuando el lapso dado no es un símbolo' do
-		
-		it 'dará un error' do
+	describe "#add_calification" do
 
-			assert_raises(School::SpanParamNotIsValid) {
-				not_is_sym = 20
-				@course.add_calification(not_is_sym, 20)	
-			}
+		describe "cuando el lapso dado para agregar la nota no son estos [:first_span, :second_span, third_span]" do
+			
+			it "da error" do
+
+				assert_raises(School::SpanUnknow) {
+					@course.add_calification(:unknow, 20)
+				}
+
+				assert_raises(School::SpanUnknow) {
+					@course.add_calification(:FIRST_SPAN, 20)
+				}
+
+			end	
 
 		end
+
+		describe 'cuando el lapso dado no es un símbolo' do
 			
-	end
+			it 'dará un error' do
+
+				assert_raises(School::SpanParamNotIsValid) {
+					not_is_sym = 20
+					@course.add_calification(not_is_sym, 20)	
+				}
+
+			end
+				
+		end
+		
+	end	
+
 
 	describe '#get_calification' do
 
